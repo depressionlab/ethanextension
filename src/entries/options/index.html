@@ -1,0 +1,32 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Options</title>
+  </head>
+  <body>
+  <div class="container">
+          <h2 class="title">When clicking on the extension icon:</h2>
+          <div class="option">
+              <label class="option-title"><input type="radio" name="iconAction" value="clickOnly"> Open current page in IINA</label>
+              <div class="option-details">
+                  <div class="item">
+                      <label><input type="radio" name="iconActionOption" value="direct"> Open directly</label>
+                  </div>
+                  <div class="item">
+                      <label><input type="radio" name="iconActionOption" value="fullScreen"> Enter full screen</label>
+                  </div>
+                  <div class="item">
+                      <label><input type="radio" name="iconActionOption" value="pip"> Enter Picture-in-Picture</label>
+                  </div>
+              </div>
+          </div>
+          <div class="option">
+              <label class="option-title"><input type="radio" name="iconAction" value="menu"> Show a menu to select action</label>
+          </div>
+    </div>
+    <script type="module" src="./main.ts"></script>
+  </body>
+</html>

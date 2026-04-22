@@ -1,8 +1,8 @@
 {
-	"name": "wxt-starter",
-	"description": "manifest.json description",
+	"name": "ethanextension",
+	"description": "small utility extension",
 	"private": true,
-	"version": "1.0.0",
+	"version": "1.0.0-alpha1",
 	"type": "module",
 	"scripts": {
 		"dev": "wxt",
@@ -11,23 +11,20 @@
 		"build:firefox": "wxt build -b firefox",
 		"zip": "wxt zip",
 		"zip:firefox": "wxt zip -b firefox",
-		"compile": "tsc --noEmit",
 		"postinstall": "wxt prepare"
 	},
 	"dependencies": {
-		"@catppuccin/palette": "1.7.1",
-		"@wxt-dev/i18n": "^0.2.4",
+		"@catppuccin/palette": "1.3.0",
 		"selector-observer": "2.1.6",
 		"webext-dynamic-content-scripts": "10.0.4",
 		"webext-permission-toggle": "6.0.1"
 	},
 	"devDependencies": {
-		"@humanfs/node": "0.16.7",
+		"@humanfs/node": "0.16.8",
 		"@humanfs/types": "0.15.0",
-		"@wxt-dev/auto-icons": "1.1.0",
+		"@wxt-dev/auto-icons": "1.1.1",
 		"jiti": "2.6.1",
-		"typescript": "5.9.3",
-		"wxt": "0.20.11"
+		"wxt": "0.20.25"
 	},
 	"packageManager": "pnpm@10.33.0+sha512.10568bb4a6afb58c9eb3630da90cc9516417abebd3fabbe6739f0ae795728da1491e9db5a544c76ad8eb7570f5c4bb3d6c637b2cb41bfdcdb47fa823c8649319"
 }

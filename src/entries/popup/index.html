@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+		<title>Popup<title>
+	</head>
+	<body>
+		<section>
+			<label for="flavor">Flavor</label>
+			<select id="flavor">
+				<option value="latte">Latte</option>
+				<option value="frappe">Frappé</option>
+				<option value="macchiato">Macchiato</option>
+				<option value="mocha">Mocha</option>
+			</select>
+		</section>
+		<section class="associations">
+			<label>Associations</label>
+			<div>
+				<span>File extensions</span>
+				<ul id="associations-file-extensions"></ul>
+			</div>
+			<div>
+				<span>File names</span>
+				<ul id="associations-file-names"></ul>
+			</div>
+			<div>
+				<span>Folder names</span>
+				<ul id="associations-folder-names"></ul>
+			</div>
+		</section>
+		<section>
+			<label for="specificFolders">Specific folders</label>
+			<input id="specificFolders" type="checkbox" />
+		</section>
+		<section>
+			<label for="monochrome">Monochrome</label>
+			<input id="monochrome" type="checkbox" />
+		</section>
+		<section class="menu">
+			<div class="menu-item" id="open-normal">Open in IINA</div>
+			<div class="menu-item" id="open-fullScreen">Open in IINA and enter full screen</div>
+			<div class="menu-item" id="open-pip">Open in IINA and enter Picture-in-Picture</div>
+			<div class="menu-item" id="open-newWindow">Open in a new IINA window</div>
+			<div class="menu-item" id="open-enqueue">Add to IINA playlist</div>
+		</section>
+		<script type="module" src="./main.ts"></script>
+	</body>
+</html>

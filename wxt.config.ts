@@ -9,16 +9,15 @@ export default defineConfig({
 	srcDir: 'src',
 	entrypointsDir: 'entries',
 	outDir: 'dist',
+	manifestVersion: 3,
 	manifest: {
-		name: 'ethanextension',
-		description: 'Small utility',
 		action: {
 			default_icon: "iina.png",
 			default_title: 'Open In IINA'
 		},
-		permissions: ['tabs', 'activeTab', 'contextMenus', 'storage', 'scripting'],
+		permissions: ['tabs', 'activeTab', 'contextMenus', 'storage', 'scripting', 'notifications', 'alarms', 'webRequest', 'webRequestBlocking'],
+		host_permissions: ['*://claude.ai/*', 'https://raw.githubusercontent.com/*', 'https://github.com/*', 'https://api.anthropic.com/*'],
 		optional_host_permissions: ['*://*/*'],
-		default_locale: 'en'
 	},
 	hooks: {
 		'build:before': async () => {
@@ -26,7 +25,6 @@ export default defineConfig({
 			const icons: Record<string, string> = {};
 			const defaults: typeof import('./vscode-icons/src/defaults/index') = await createJiti(__dirname)
 				.import('./vscode-icons/src/defaults/index.ts');
-
 
 			for await (const entry of hfs.list(ICON_DIR)) {
 				icons[entry.name.replace('.svg', '')] = await hfs
@@ -40,7 +38,7 @@ export default defineConfig({
 		'build:manifestGenerated': (wxt, manifest) => {
 			if (wxt.config.command === 'serve') {
 				// during deployment, content scripts are not listed in the manifest.json,
-				// causing `webext-dynamic-content-scripts` to throw an error.
+				// causing `webext-dynamic-content-scripts` to throw an error. so we need to add it manually
 				manifest.content_scripts ??= [];
 				manifest.content_scripts.push({
 					// ensure `matches` urls are updated in src/entries/content/index.ts as well.
@@ -51,7 +49,7 @@ export default defineConfig({
 			}
 		},
 	},
-	modules: ['@wxt-dev/auto-icons', '@wxt-dev/i18n/module'],
+	modules: ['@wxt-dev/auto-icons'],
 	webExt: {
 		startUrls: [
 			'https://github.com/catppuccin/catppuccin',
