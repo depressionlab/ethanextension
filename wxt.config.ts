@@ -7,6 +7,7 @@ import { matches } from './src/sites';
 // See https://wxt.dev/api/config.html
 export default defineConfig({
 	srcDir: 'src',
+	targetBrowsers: ['chrome', 'firefox', 'safari'],
 	entrypointsDir: 'entries',
 	outDir: 'dist',
 	manifestVersion: 3,
@@ -49,7 +50,13 @@ export default defineConfig({
 			}
 		},
 	},
-	modules: ['@wxt-dev/auto-icons'],
+	modules: [
+		'@wxt-dev/auto-icons',
+		'@wxt-dev/unocss',
+	],
+	analysis: {
+		enabled: true
+	},
 	webExt: {
 		startUrls: [
 			'https://github.com/catppuccin/catppuccin',
